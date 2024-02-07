@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Cursor with Hover Effect</title>
+  <style>
+    body {
+      cursor: url('/img/catcursor1.png'), auto;
+    }
+
+    /* Hover effect for the body */
+    body:hover {
+      cursor: url('/img/catcursor2.png'), auto;
+      background-color: #f0f0f0;
+      /* You can add any additional styling or effects when the cursor hovers over the body */
+    }
+
+    /* Additional styling for the page */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 100px;
+      transition: background-color 0.3s ease; /* Add a smooth transition effect */
+    }
+
+    h1 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Custom Cursor with Hover Effect</h1>
+  <p>Hover over the page to see the effect!</p>
+</body>
+</html>

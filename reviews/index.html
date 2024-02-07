@@ -1,0 +1,201 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/styles.scss">
+    <title>meowcom.org</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/gif" href="/img/pop.gif">
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr 2fr;
+            grid-gap: 20px;
+            margin-left: 5%;
+            margin-right: 10%;
+            margin-top: 50px;
+        }
+        .review {
+            background-color: #f2f2f2;
+            padding: 10px;
+            background: rgb(255 255 255 / 8%);
+            border-radius: 25px;
+        }
+        .account {
+            display: flex;
+            align-items: center;
+            gap: 10px;        
+        }
+
+        .account img{
+            margin-left: auto;
+        }
+        .profile-picture {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .form {
+            position:absolute;
+            bottom: 0;
+            left: 50px;
+            width: 300px;
+            height: 50px;
+            background-color: #454FBF;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            cursor: pointer;
+
+            
+        }
+        .form img{
+            width:20px;
+            height: 20px;
+            position: absolute;
+            right: 5px;
+            top:5px;
+        }
+        .form img:hover{
+            cursor: pointer;
+        }
+
+        .form textarea{
+            border-radius: 5px;
+            border: none;
+            background-color: #f2f2f2;
+            padding: 5px;
+            margin-left: 17%;
+            height: 50px;
+            align-content: top;
+            resize: none;
+            
+        }
+
+        .form input:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        /* Custom select styles */
+        .custom-select {
+            position: relative;
+            display: inline-block;
+            width: 220px;
+            margin-left: 10%;
+        }
+        .custom-select select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+        }
+        .custom-select::after {
+            content: '\25BC';
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: #555;
+        }
+
+        button{
+            background-color: #f2f2f2;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            cursor: pointer;
+            height: 50px;
+            width: 70px;
+            margin-left: 35%;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="b"  href="/">
+            <div class="logo-image">
+                <img src="/img/meow_circle_small_logo.png" class="img-fluid">
+            </div>
+            </a>
+            <a id="A" href="/?linkA=true">ABOUT</a>
+            <a href="/reviews/">REVIEWS</a>
+            <a id="G" href="/?linkG=true">GALLERY</a>
+            <a id="F" href="/?linkF=true">FAQ</a>
+            
+            <a class="c" style="margin-left: auto; margin-right: 15px;; border-radius: 100%;" href="https://guns.lol/arky"><img style="height: 70%;" src="/img/ArkyLink.jpg"></a>
+            <a class="c" style="margin-right: 15px;; border-radius: 100%;" href="https://guns.lol/xstcsy"><img style="height: 70%;" src="/img/conimg.jpg"></a>
+            <a class="c" href= "https://steamcommunity.com/groups/MeoWCoMOT"><img src="/img/steam_meow_com.png"></a>
+            <a class="c" href="https://discord.gg/DWF7gmBA"><img src="/img/meow_discord.png"></a>
+    </div>
+
+    <div class="grid-container">
+        <div class="account">
+            <img class="profile-picture" src="/img/cat1.jpg">
+            <span>ScratchNsniff</span>
+        </div>
+        <div class="review">
+            <p>Review 1</p>
+        </div>
+
+        <div class="account">
+            <img class="profile-picture" src="/img/cat2.jpg">
+            <span>ProblemOutput</span>
+        </div>
+        <div class="review">
+            <p>Review 2</p>
+        </div>
+
+        <!-- Add more account and review pairs as needed -->
+
+    </div>
+
+    <div id="formbox" class="form">
+        <p style="color: white; margin-left: 27%;">Leave a review</p>
+        <form id="form" style="margin-top: 20px; margin-left: 10px; display: none;">
+            <div id="close">
+            <img src="/img/X.png">
+            </div>
+            <div class="custom-select">
+                <select type="text" id="name" name="name">
+                    <option value="" disabled selected>Select someone to review</option>
+                    <option value="sirarky">SirArky</option>
+                    <option value="con">Con</option>
+                    <option value="amso">AMSO</option>
+                    <option value="neutro">Neutronix</option>
+                    <option value="jack">JackAttack</option>
+            </select>
+            </div><br>
+            <br>
+            <textarea id="review" name="review"></textarea><br>
+            <button id="submit">Submit review</button>
+        </form>
+    </div>
+    <script>
+    function openReviewForm() {
+        document.getElementById("form").style.display = "block";
+        document.getElementById("formbox").style.height = "300px";
+        document.getElementById("formbox").style.cursor = "default";
+    }
+      
+    function closeReviewForm(event) {
+        event.stopPropagation();
+        document.getElementById("form").style.display = "none";
+        document.getElementById("formbox").style.height = "50px";
+        document.getElementById("formbox").style.cursor = "pointer";
+    }
+      
+    document.getElementById("formbox").addEventListener("click", openReviewForm);
+    document.getElementById("close").addEventListener("click", closeReviewForm);
+          </script>
+</body>
+</html>
