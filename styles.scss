@@ -8,7 +8,6 @@ html{
 body{
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    color: #40839c;
     background-color: #0f0f0f;
     margin: 0;
     padding: 0;
@@ -119,11 +118,6 @@ body{
     width: 100%;
     margin-bottom: 150px;
 }
-
-.main{
-    height: 2800px;
-    width: 1300px;
-}
 .short{
     height: 50px;
     width: 100%;
@@ -178,14 +172,9 @@ body{
     text-align: center;
 }
 
-.blue {
-    background-color:#40839c;
-}
+
 .black {
     background-color:#000000;
-}
-.green{
-    background-color: #04AA6D;
 }
 
 .topim {
@@ -355,40 +344,7 @@ body{
 }
 
 
-.text-wrap {
-    max-width: 1056px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-    position: relative;
-    height: 150px;
-}
 
-.text-wrap .progress-text {
-    width: 100%;
-    transition: 0.3s ease-in-out;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background: #121212;
-    opacity: 0;
-}
-
-.text-wrap .progress-text.active {
-    opacity: 1;
-}
-
-.text-wrap .progress-text .progress__title {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
-    font-size: 28px;
-}
 
 h1{
     color: black;

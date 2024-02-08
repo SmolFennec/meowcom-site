@@ -12,7 +12,7 @@
 <div class="topnav">
 	<a class="b"  href="/">
 	<div class="logo-image">
-		<img src="./img/meow_circle_small_logo.png" class="img-fluid">
+		<img loading="lazy" src="./img/meow_circle_small_logo.png" class="img-fluid">
 	</div>
 	</a>
 	<a id="A" href="javascript:void(0);">ABOUT</a>
@@ -20,23 +20,23 @@
 	<a id="G" href="javascript:void(0);">GALLERY</a>
 	<a id="F" href="javascript:void(0);">FAQ</a>
 
-    <a class="c" style="margin-left: auto; margin-right: 15px;; border-radius: 100%;" href="https://guns.lol/arky"><img style="height: 70%;" src="./img/ArkyLink.jpg"></a>
-    <a class="c" style="margin-right: 15px;; border-radius: 100%;" href="https://guns.lol/gorecite"><img style="height: 70%;" src="./img/conimg.jpg"></a>
-	<a class="c" href= "https://steamcommunity.com/groups/MeoWCoMOT"><img src="./img/steam_meow_com.png"></a>
-	<a class="c" href="https://discord.gg/DWF7gmBA"><img src="./img/meow_discord.png"></a>
+    <a class="c" style="margin-left: auto; margin-right: 15px;; border-radius: 100%;" href="https://guns.lol/arky"><img loading="lazy" style="height: 70%;" src="./img/ArkyLink.jpg"></a>
+    <a class="c" style="margin-right: 15px;; border-radius: 100%;" href="https://guns.lol/gorecite"><img loading="lazy" style="height: 70%;" src="./img/conimg.jpg"></a>
+	<a class="c" href= "https://steamcommunity.com/groups/MeoWCoMOT"><img loading="lazy" src="./img/steam_meow_com.png"></a>
+	<a class="c" href="https://discord.gg/DWF7gmBA"><img loading="lazy" src="./img/meow_discord.png"></a>
 </div>
 
 
 <!--ADD BOOP NOISE WHEN NOSE CLICKED-->
 <div class="topim">
-	<img src="./img/meowcom_header.png" style="width: 100%; height: 100%;">
+	<img loading="lazy" src="./img/meowcom_header.png" style="width: 100%; height: 100%;">
 </div>
 
 
 <div class="box small">
 	<div class="gridbox">
 		<div class="griditem" style=" width:500px; margin-left: auto;">
-			<img src="./img/meowAbt.jpg" style="width: 500px; height: 300px; border-radius: 5;">
+			<img loading="lazy" src="./img/meowAbt.jpg" style="width: 500px; height: 300px; border-radius: 5;">
 		</div>
 
 		<div class="griditem" id="about" style="margin-right: auto;">
@@ -53,8 +53,8 @@
 
 <div class="gallery-wrap">
     <div class="gallery" id="gallery">
-        <img src="./img/gallery1.png"><img src="./img/gallery2.png"><img src="./img/gallery3.png"><img
-            src="./img/gallery4.png"><img src="./img/gallery5.jpg"><img src="./img/gallery6.jpg">
+        <img loading="lazy" src="./img/gallery1.png"><img loading="lazy" src="./img/gallery2.png"><img loading="lazy" src="./img/gallery3.png"><img loading="lazy"
+            src="./img/gallery4.png"><img loading="lazy" src="./img/gallery5.jpg"><img loading="lazy" src="./img/gallery6.jpg">
     </div>
 </div>
 
@@ -145,42 +145,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 5000);
 });
 
-function scrollToElementA() {
-      // Get a reference to the element
-      var element = document.getElementById('about');
-      
-      // Scroll to the element
-      element.scrollIntoView({
+function scrollToElement(elementId) {
+    // Get a reference to the element
+    var element = document.getElementById(elementId);
+    
+    // Scroll to the element
+    element.scrollIntoView({
         behavior: 'smooth', // You can use 'auto' or 'instant' instead of 'smooth' for different scrolling behavior
         block: 'start',
-      });
-    }
+    });
+}
 
-    function scrollToElementG() {
-      // Get a reference to the element
-      var element = document.getElementById('gallery');
-      
-      // Scroll to the element
-      element.scrollIntoView({
-        behavior: 'smooth', // You can use 'auto' or 'instant' instead of 'smooth' for different scrolling behavior
-        block: 'start',
-      });
-    }
-
-    function scrollToElementF() {
-      // Get a reference to the element
-      var element = document.getElementById('FAQ');
-      
-      // Scroll to the element
-      element.scrollIntoView({
-        behavior: 'smooth', // You can use 'auto' or 'instant' instead of 'smooth' for different scrolling behavior
-        block: 'start',
-      });
-    }
-
-document.getElementById("A").addEventListener("click", scrollToElementA);
-document.getElementById("G").addEventListener("click", scrollToElementG);
-document.getElementById("F").addEventListener("click", scrollToElementF);
+document.getElementById("A").addEventListener("click", function() { scrollToElement('about'); });
+document.getElementById("G").addEventListener("click", function() { scrollToElement('gallery'); });
+document.getElementById("F").addEventListener("click", function() { scrollToElement('faq'); });
 
 document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
@@ -203,28 +181,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="gridbox2" style="height: 650px;">
 	<div class="griditem2L">
-		<img src="img/cat1.jpg" style="width: 100px; height: 100px;">
+		<img loading="lazy" src="img/cat1.jpg" style="width: 100px; height: 100px;">
 	</div>
 	<div class="griditem2R">
 		<h2>Why was this made?</h2>
 		<p>SirArky was bored.</p>
 	</div>
 	<div class="griditem2L" id="FAQ">
-		<img src="./img/cat2.jpg" style="width: 100px; height: 100px;">
+		<img loading="lazy" src="./img/cat2.jpg" style="width: 100px; height: 100px;">
 	</div>
 	<div class="griditem2R">
 		<h2>Why do you use wh in CS2 </h2>
 		<p>Because we are shit.</p>
 	</div>
 	<div class="griditem2L">
-		<img src="./img/cat3.jpg" style="width: 100px; height: 100px;">
+		<img loading="lazy" src="./img/cat3.jpg" style="width: 100px; height: 100px;">
 	</div>
 	<div class="griditem2R">
 		<h2>Is that a real number?</h2>
 		<p>Yes its mine (Sirarky)</p>
 	</div>
 	<div class="griditem2L">
-		<img src="./img/cat4.jpg" style="width: 100px; height: 100px;">
+		<img loading="lazy" src="./img/cat4.jpg" style="width: 100px; height: 100px;">
 	</div>
 	<div class="griditem2R">
             <h2>How do i make methamphetamine?</h2>
@@ -245,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <br>
 		</div>
     <div class="credits">
-        <p class="text-center">© 2024 MeoWCom. All rights reserved. <p style="margin-left: 75%;"> developed by smollfennec</p> <a href="smollfennec"><img src="./img/devimg.png"></a></p>
+        <p class="text-center">© 2024 MeoWCom. All rights reserved. <p style="margin-left: 75%;"> developed by smollfennec</p> <img loading="lazy" src="./img/devimg.png"></p>
     </div>
 </div>
 </body>
