@@ -12,11 +12,12 @@
             margin-left: 5%;
             margin-right: 10%;
             margin-top: 50px;
+            color: white;
         }
         .review {
             background-color: #f2f2f2;
             padding: 10px;
-            background: rgb(255 255 255 / 8%);
+            background: rgb(255 255 255 / 10%);
             border-radius: 25px;
         }
         .account {
@@ -35,7 +36,7 @@
         }
 
         .form {
-            position:absolute;
+            position: fixed;
             bottom: 0;
             left: 50px;
             width: 300px;
@@ -44,8 +45,7 @@
             border-top-left-radius: 25px;
             border-top-right-radius: 25px;
             cursor: pointer;
-
-            
+            z-index: 1;
         }
         .form img{
             width:20px;
@@ -121,6 +121,7 @@
 </head>
 
 <body>
+    
     <div class="topnav">
         <a class="b"  href="/">
             <div class="logo-image">
@@ -137,26 +138,27 @@
             <a class="c" href= "https://steamcommunity.com/groups/MeoWCoMOT"><img loading="lazy" src="/img/steam_meow_com.png"></a>
             <a class="c" href="https://discord.gg/DWF7gmBA"><img loading="lazy" src="/img/meow_discord.png"></a>
     </div>
+    <div class="main" style="height: 100%;">
+        <div class="grid-container">
+            <div class="account">
+                <img loading="lazy" class="profile-picture" src="/img/cat1.jpg">
+                <span>ScratchNsniff</span>
+            </div>
+            <div class="review">
+                <p>Review 1</p>
+            </div>
 
-    <div class="grid-container">
-        <div class="account">
-            <img loading="lazy" class="profile-picture" src="/img/cat1.jpg">
-            <span>ScratchNsniff</span>
-        </div>
-        <div class="review">
-            <p>Review 1</p>
-        </div>
+            <div class="account">
+                <img loading="lazy" class="profile-picture" src="/img/cat2.jpg">
+                <span>ProblemOutput</span>
+            </div>
+            <div class="review">
+                <p>Review 2</p>
+            </div>
 
-        <div class="account">
-            <img loading="lazy" class="profile-picture" src="/img/cat2.jpg">
-            <span>ProblemOutput</span>
-        </div>
-        <div class="review">
-            <p>Review 2</p>
-        </div>
+            <!-- Add more account and review pairs as needed -->
 
-        <!-- Add more account and review pairs as needed -->
-
+        </div>
     </div>
 
     <div id="formbox" class="form">
@@ -180,6 +182,42 @@
             <button id="submit">Submit review</button>
         </form>
     </div>
+
+    <script>
+        document.getElementById("submit").addEventListener("click", function(event){
+            event.preventDefault();
+            var username = document.getElementById("name").value;
+            var content = document.getElementById("review").value;
+            console.log(username, content);
+
+            fetch('https://discord.com/api/webhooks/1206688739464708167/3g9crjUs54g5mid79MMunOUvMMlg5T7XgAJ1NZoxavxTmETYkzz4lOtwjYhsrNBVh_6e', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: username,
+                    content: content,
+                }),
+            });
+        });
+    </script>
+
+    
+    <div class="box black footer">
+        <div class="container">
+                <h3>Address</h3>
+                <p>1600 Pennsylvania Avenue<br>NW in Washington, D.C</p>
+                <h3>Phone</h3>
+                <p>07518527891</p>
+                <h3>Email</h3>
+                <p>LMeowcom@outlook.com</p>
+                <br>
+            </div>
+        <div class="credits">
+            <p class="text-center">© 2024 MeoWCom. All rights reserved. <p style="margin-left: 75%;"> developed by smollfennec</p><a href="https://guns.lol/smollfennec"><img loading="lazy" src="/img/devimg.png"></a></p>
+        </div>
+    </div>
     <script>
     function openReviewForm() {
         document.getElementById("form").style.display = "block";
@@ -196,6 +234,6 @@
       
     document.getElementById("formbox").addEventListener("click", openReviewForm);
     document.getElementById("close").addEventListener("click", closeReviewForm);
-          </script>
+    </script>
 </body>
 </html>
