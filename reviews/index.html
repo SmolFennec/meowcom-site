@@ -190,16 +190,33 @@
             var content = document.getElementById("review").value;
             console.log(username, content);
 
-            fetch('https://discord.com/api/webhooks/1206688739464708167/3g9crjUs54g5mid79MMunOUvMMlg5T7XgAJ1NZoxavxTmETYkzz4lOtwjYhsrNBVh_6e', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    username: username,
-                    content: content,
-                }),
-            });
+            if (!username || !content) {
+                alert("Please fill out all fields");
+                return;
+            }
+
+            else if (content.length > 1000) {
+                alert("Review is too long");
+                return;
+            }
+
+            else if (content.includes("@")) {
+                alert("Review cannot contain @ symbol");
+                return;
+            }
+            else{
+                fetch('https://discord.com/api/webhooks/1206688739464708167/3g9crjUs54g5mid79MMunOUvMMlg5T7XgAJ1NZoxavxTmETYkzz4lOtwjYhsrNBVh_6e', {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        content: content,
+                    }),
+                });
+            }
+
         });
     </script>
 
