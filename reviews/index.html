@@ -4,118 +4,9 @@
     <title>meowcom.org</title>
     <meta charset="UTF-8">
     <link rel="icon" type="image/gif" href="/img/pop.gif">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr 2fr;
-            grid-gap: 20px;
-            margin-left: 5%;
-            margin-right: 10%;
-            margin-top: 50px;
-            color: white;
-        }
-        .review {
-            background-color: #f2f2f2;
-            padding: 10px;
-            background: rgb(255 255 255 / 10%);
-            border-radius: 25px;
-        }
-        .account {
-            display: flex;
-            align-items: center;
-            gap: 10px;        
-        }
-
-        .account img{
-            margin-left: auto;
-        }
-        .profile-picture {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        .form {
-            position: fixed;
-            bottom: 0;
-            left: 50px;
-            width: 300px;
-            height: 50px;
-            background-color: #454FBF;
-            border-top-left-radius: 25px;
-            border-top-right-radius: 25px;
-            cursor: pointer;
-            z-index: 1;
-        }
-        .form img{
-            width:20px;
-            height: 20px;
-            position: absolute;
-            right: 5px;
-            top:5px;
-        }
-        .form img:hover{
-            cursor: pointer;
-        }
-
-        .form textarea{
-            border-radius: 5px;
-            border: none;
-            background-color: #f2f2f2;
-            padding: 5px;
-            margin-left: 17%;
-            height: 50px;
-            align-content: top;
-            resize: none;
-            
-        }
-
-        .form input:focus {
-            outline: none;
-            box-shadow: none;
-        }
-
-        /* Custom select styles */
-        .custom-select {
-            position: relative;
-            display: inline-block;
-            width: 220px;
-            margin-left: 10%;
-        }
-        .custom-select select {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            cursor: pointer;
-        }
-        .custom-select::after {
-            content: '\25BC';
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            font-size: 16px;
-            color: #555;
-        }
-
-        button{
-            background-color: #f2f2f2;
-            border: none;
-            border-radius: 5px;
-            padding: 5px;
-            margin: 5px;
-            cursor: pointer;
-            height: 50px;
-            width: 70px;
-            margin-left: 35%;
-
-        }
+        
     </style>
 
 </head>
@@ -163,10 +54,11 @@
 
     <div id="formbox" class="form">
         <p style="color: white; margin-left: 27%;">Leave a review</p>
-        <form id="form" style="margin-top: 20px; margin-left: 10px; display: none;">
-            <div id="close">
+        <div id="close" style="display: none;">
             <img loading="lazy" src="/img/X.png">
             </div>
+        <form id="form" style="margin-top: 20px; margin-left: 10px; display: none;">
+
             <div class="custom-select">
                 <select type="text" id="name" name="name">
                     <option value="" disabled selected>Select someone to review</option>
@@ -181,10 +73,66 @@
             <textarea id="review" name="review"></textarea><br>
             <button id="submit">Submit review</button>
         </form>
+
+        <div id="DisLog" class="DisLog">
+            <a id="login" href="https://discord.com/api/oauth2/authorize?client_id=1208155787986472961&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A1234%2Freviews%2Findex.html%2Fauth%2Fdiscord&scope=identify">
+                <i class="fa-brands fa-discord"></i>
+                <span>Login with Discord</span>
+            </a>
+        </div>
     </div>
 
+    
+    <div class="box black footer">
+        <div class="container">
+                <h3>Address</h3>
+                <p>1600 Pennsylvania Avenue<br>NW in Washington, D.C</p>
+                <h3>Phone</h3>
+                <p>07518527891</p>
+                <h3>Email</h3>
+                <p>LMeowcom@outlook.com</p>
+                <br>
+            </div>
+        <div class="credits">
+            <p class="text-center">© 2024 MeoWCom. All rights reserved. <p style="margin-left: 75%;"> developed by smollfennec</p><a href="https://guns.lol/smollfennec"><img loading="lazy" src="/img/devimg.png"></a></p>
+        </div>
+    </div>
     <script>
-        document.getElementById("submit").addEventListener("click", function(event){
+        var logged = false;
+        window.onload = () => {
+            const fragment = new URLSearchParams(window.location.hash.slice(1));
+            const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+            console.log(accessToken, tokenType);
+            
+        } 
+
+//use if statement in review form opener to check if access token is not null and set logged to true if it is not null and hide the login button
+
+
+    function openReviewForm() {
+        
+        if (logged){
+            document.getElementById("form").style.display = "block";
+        }
+
+        document.getElementById("formbox").style.height = "300px";
+        document.getElementById("formbox").style.cursor = "default";
+        document.getElementById("close").style.display = "block";
+    }
+      
+    function closeReviewForm(event) {
+        event.stopPropagation();
+        document.getElementById("form").style.display = "none";
+        document.getElementById("formbox").style.height = "50px";
+        document.getElementById("formbox").style.cursor = "pointer";
+        document.getElementById("close").style.display = "none";
+    }
+      
+    document.getElementById("formbox").addEventListener("click", openReviewForm);
+    document.getElementById("close").addEventListener("click", closeReviewForm);
+
+
+    document.getElementById("submit").addEventListener("click", function(event){
             event.preventDefault();
             var username = document.getElementById("name").value;
             var content = document.getElementById("review").value;
@@ -220,37 +168,6 @@
         });
     </script>
 
-    
-    <div class="box black footer">
-        <div class="container">
-                <h3>Address</h3>
-                <p>1600 Pennsylvania Avenue<br>NW in Washington, D.C</p>
-                <h3>Phone</h3>
-                <p>07518527891</p>
-                <h3>Email</h3>
-                <p>LMeowcom@outlook.com</p>
-                <br>
-            </div>
-        <div class="credits">
-            <p class="text-center">© 2024 MeoWCom. All rights reserved. <p style="margin-left: 75%;"> developed by smollfennec</p><a href="https://guns.lol/smollfennec"><img loading="lazy" src="/img/devimg.png"></a></p>
-        </div>
-    </div>
-    <script>
-    function openReviewForm() {
-        document.getElementById("form").style.display = "block";
-        document.getElementById("formbox").style.height = "300px";
-        document.getElementById("formbox").style.cursor = "default";
-    }
-      
-    function closeReviewForm(event) {
-        event.stopPropagation();
-        document.getElementById("form").style.display = "none";
-        document.getElementById("formbox").style.height = "50px";
-        document.getElementById("formbox").style.cursor = "pointer";
-    }
-      
-    document.getElementById("formbox").addEventListener("click", openReviewForm);
-    document.getElementById("close").addEventListener("click", closeReviewForm);
-    </script>
+
 </body>
 </html>
