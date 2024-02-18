@@ -5,14 +5,8 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/gif" href="/img/pop.gif">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        
-    </style>
-
 </head>
-
-<body>
-    
+<body>    
     <div class="topnav">
         <a class="b"  href="/">
             <div class="logo-image">
@@ -20,16 +14,15 @@
             </div>
             </a>
             <a id="A" href="/?linkA=true">ABOUT</a>
-            <a href="/reviews/">REVIEWS</a>
+            <a href="javascript:void(0);">REVIEWS</a>
             <a id="G" href="/?linkG=true">GALLERY</a>
-            <a id="F" href="/?linkF=true">FAQ</a>
-            
-            <a class="c" style="margin-left: auto; margin-right: 15px;; border-radius: 100%;" href="https://guns.lol/arky"><img loading="lazy" style="height: 70%;" src="/img/ArkyLink.jpg"></a>
-            <a class="c" style="margin-right: 15px;; border-radius: 100%;" href="https://guns.lol/gorecite"><img loading="lazy" style="height: 70%;" src="/img/conimg.jpg"></a>
+            <a id="F" href="/?linkF=true">FAQ</a>            
+            <a class="c" style="margin-left:auto;margin-right:15px;;border-radius:100%;" href="https://guns.lol/arky"><img loading="lazy" style="height:70%;" src="/img/ArkyLink.jpg"></a>
+            <a class="c" style="margin-right:15px;border-radius:100%;" href="https://guns.lol/gorecite"><img loading="lazy" style="height:70%;" src="/img/conimg.jpg"></a>
             <a class="c" href= "https://steamcommunity.com/groups/MeoWCoMOT"><img loading="lazy" src="/img/steam_meow_com.png"></a>
             <a class="c" href="https://discord.gg/DWF7gmBA"><img loading="lazy" src="/img/meow_discord.png"></a>
     </div>
-    <div class="main" style="height: 100%;">
+    <div class="main" style="height:100%;">
         <div class="grid-container">
             <div class="account">
                 <img loading="lazy" class="profile-picture" src="/img/cat1.jpg">
@@ -38,7 +31,6 @@
             <div class="review">
                 <p>Review 1</p>
             </div>
-
             <div class="account">
                 <img loading="lazy" class="profile-picture" src="/img/cat2.jpg">
                 <span>ProblemOutput</span>
@@ -46,19 +38,15 @@
             <div class="review">
                 <p>Review 2</p>
             </div>
-
-            <!-- Add more account and review pairs as needed -->
-
+            <!---->
         </div>
     </div>
-
     <div id="formbox" class="form">
-        <p style="color: white; margin-left: 27%;">Leave a review</p>
-        <div id="close" style="display: none;">
+        <p style="color:white;margin-left:27%;">Leave a review</p>
+        <div id="close" style="display:none;">
             <img loading="lazy" src="/img/X.png">
             </div>
-        <form id="form" style="margin-top: 20px; margin-left: 10px; display: none;">
-
+        <form id="form" style="margin-top:20px;margin-left:10px;display:none;height:100%;">
             <div class="custom-select">
                 <select type="text" id="name" name="name">
                     <option value="" disabled selected>Select someone to review</option>
@@ -72,8 +60,8 @@
             <br>
             <textarea id="review" name="review"></textarea><br>
             <button id="submit">Submit review</button>
+            <a class="logout" href="reviews">logout</a>
         </form>
-
         <div id="DisLog" class="DisLog">
             <a id="login" href="https://discord.com/api/oauth2/authorize?client_id=1208155787986472961&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A1234%2Freviews%2Findex.html%2Fauth%2Fdiscord&scope=identify">
                 <i class="fa-brands fa-discord"></i>
@@ -81,8 +69,6 @@
             </a>
         </div>
     </div>
-
-    
     <div class="box black footer">
         <div class="container">
                 <h3>Address</h3>
@@ -94,80 +80,9 @@
                 <br>
             </div>
         <div class="credits">
-            <p class="text-center">© 2024 MeoWCom. All rights reserved. <p style="margin-left: 75%;"> developed by smollfennec</p><a href="https://guns.lol/smollfennec"><img loading="lazy" src="/img/devimg.png"></a></p>
+            <p class="text-center">© 2024 MeoWCom. All rights reserved. <p style="margin-left:75%;"> developed by smollfennec</p><a href="https://guns.lol/smollfennec"><img loading="lazy" src="/img/devimg.png"></a></p>
         </div>
     </div>
-    <script>
-        var logged = false;
-        window.onload = () => {
-            const fragment = new URLSearchParams(window.location.hash.slice(1));
-            const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
-            console.log(accessToken, tokenType);
-            
-        } 
-
-//use if statement in review form opener to check if access token is not null and set logged to true if it is not null and hide the login button
-
-
-    function openReviewForm() {
-        
-        if (logged){
-            document.getElementById("form").style.display = "block";
-        }
-
-        document.getElementById("formbox").style.height = "300px";
-        document.getElementById("formbox").style.cursor = "default";
-        document.getElementById("close").style.display = "block";
-    }
-      
-    function closeReviewForm(event) {
-        event.stopPropagation();
-        document.getElementById("form").style.display = "none";
-        document.getElementById("formbox").style.height = "50px";
-        document.getElementById("formbox").style.cursor = "pointer";
-        document.getElementById("close").style.display = "none";
-    }
-      
-    document.getElementById("formbox").addEventListener("click", openReviewForm);
-    document.getElementById("close").addEventListener("click", closeReviewForm);
-
-
-    document.getElementById("submit").addEventListener("click", function(event){
-            event.preventDefault();
-            var username = document.getElementById("name").value;
-            var content = document.getElementById("review").value;
-            console.log(username, content);
-
-            if (!username || !content) {
-                alert("Please fill out all fields");
-                return;
-            }
-
-            else if (content.length > 1000) {
-                alert("Review is too long");
-                return;
-            }
-
-            else if (content.includes("@")) {
-                alert("Review cannot contain @ symbol");
-                return;
-            }
-            else{
-                fetch('https://discord.com/api/webhooks/1207797237250527242/tkKJb_hdcAyaU5wTpjb1VOygaxnfQ1tLRTs3KWolrFhFN4hzdWfwbLojFsRw5ERv8STd', {
-                    method: 'POST',
-                    headers: {
-                    'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        username: username,
-                        content: content,
-                    }),
-                });
-            }
-
-        });
-    </script>
-
-
+    <script src="/script.js"></script>
 </body>
 </html>

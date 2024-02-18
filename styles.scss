@@ -422,10 +422,11 @@ h1{
     display: flex;
     align-items: center;
     gap: 10px;        
-}
 
-.account img{
-    margin-left: auto;
+
+    img{
+        margin-left: auto;
+    }
 }
 .profile-picture {
     width: 50px;
@@ -444,36 +445,37 @@ h1{
     border-top-right-radius: 25px;
     cursor: pointer;
     z-index: 1;
-}
-.form img{
-    width:20px;
-    height: 20px;
-    position: absolute;
-    right: 5px;
-    top:5px;
-}
-.form img:hover{
-    cursor: pointer;
+
+    img{
+        width:20px;
+        height: 20px;
+        position: absolute;
+        right: 5px;
+        top:5px;
+    }
+    img:hover{
+        cursor: pointer;
+    }
+
+    textarea{
+        border-radius: 5px;
+        border: none;
+        background-color: #f2f2f2;
+        padding: 5px;
+        margin-left: 17%;
+        height: 50px;
+        align-content: top;
+        resize: none;
+        
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: none;
+    }
 }
 
-.form textarea{
-    border-radius: 5px;
-    border: none;
-    background-color: #f2f2f2;
-    padding: 5px;
-    margin-left: 17%;
-    height: 50px;
-    align-content: top;
-    resize: none;
-    
-}
 
-.form input:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-/* Custom select styles */
 .custom-select {
     position: relative;
     display: inline-block;
@@ -537,4 +539,20 @@ button{
         height: 100%;
         width: 100%;
     }
+}
+
+.logout{
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    height: 50px;
+    width: 70px;
+    margin-left: 35%;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    left:120px;
+    top: 35px;
 }

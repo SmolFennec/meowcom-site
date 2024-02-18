@@ -1,13 +1,10 @@
 <html>
-
 <head>
 	<link rel="stylesheet" href="styles.scss">
 <title>meowcom.org</title>
 	<meta charset="UTF-8">
 	<link rel="icon" type="image/gif" href="img/pop.gif">
-
 </head>
-
 <body>
 <div class="topnav">
 	<a class="b"  href="/">
@@ -19,46 +16,35 @@
 	<a href="reviews">REVIEWS</a>
 	<a id="G" href="javascript:void(0);">GALLERY</a>
 	<a id="F" href="javascript:void(0);">FAQ</a>
-
-    <a class="c" style="margin-left: auto; margin-right: 15px;; border-radius: 100%;" href="https://guns.lol/arky"><img loading="lazy" style="height: 70%;" src="./img/ArkyLink.jpg"></a>
-    <a class="c" style="margin-right: 15px;; border-radius: 100%;" href="https://guns.lol/gorecite"><img loading="lazy" style="height: 70%;" src="./img/conimg.jpg"></a>
+    <a class="c" style="margin-left:auto;margin-right:15px;;border-radius:100%;" href="https://guns.lol/arky"><img loading="lazy" style="height:70%;" src="./img/ArkyLink.jpg"></a>
+    <a class="c" style="margin-right:15px;;border-radius:100%;" href="https://guns.lol/gorecite"><img loading="lazy" style="height:70%;" src="./img/conimg.jpg"></a>
 	<a class="c" href= "https://steamcommunity.com/groups/MeoWCoMOT"><img loading="lazy" src="./img/steam_meow_com.png"></a>
 	<a class="c" href="https://discord.gg/DWF7gmBA"><img loading="lazy" src="./img/meow_discord.png"></a>
 </div>
-
-
-<!--ADD BOOP NOISE WHEN NOSE CLICKED-->
 <div class="topim">
 	<img loading="lazy" src="./img/meowcom_header.png" style="width: 100%; height: 100%;">
 </div>
-
-
 <div class="box small">
 	<div class="gridbox">
-		<div class="griditem" style=" width:500px; margin-left: auto;">
-			<img loading="lazy" src="./img/meowAbt.jpg" style="width: 500px; height: 300px; border-radius: 5;">
+		<div class="griditem" style="width:500px;margin-left:auto;">
+			<img loading="lazy" src="./img/meowAbt.jpg" style="width:500px;height:300px;border-radius:5;">
 		</div>
 
-		<div class="griditem" id="about" style="margin-right: auto;">
+		<div class="griditem" id="about" style="margin-right:auto;">
 			<h1>About MeoWCom</h1>
 			<p>MeoWCom is a community of gamers who play a variety of games. We are a friendly community who are always looking for new members to join us. We have a variety of servers for different games and are always looking to expand. We have a discord server where you can chat with other members of the community and find out about upcoming events. We also have a steam group where you can find out about upcoming events and chat with other members of the community.</p>
 		</div>
 	</div>	
 </div>
-
-
 <div class="box short">
 	<h1>Gallery</h1>
 </div>
-
 <div class="gallery-wrap">
     <div class="gallery" id="gallery">
         <img loading="lazy" src="./img/gallery1.png"><img loading="lazy" src="./img/gallery2.png"><img loading="lazy" src="./img/gallery3.png"><img loading="lazy"
             src="./img/gallery4.png"><img loading="lazy" src="./img/gallery5.jpg"><img loading="lazy" src="./img/gallery6.jpg">
     </div>
 </div>
-
-
 <div class="progress-container">
     <div class="progress active" id="progress0">
         <div class="progress__bar">
@@ -91,127 +77,40 @@
         </div>
     </div>
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    let gallery_state = 0;
-    document.getElementById('progress_bar0').style.width = '100%';
-    setInterval(function () {
-
-        //rest all progress bars
-        let progressBars = document.querySelectorAll('.progress-1');
-        progressBars.forEach(function (bar) {
-            bar.classList.remove('active');
-        });
-
-        let fullProgressBars = document.querySelectorAll('.progress__full-1');
-        fullProgressBars.forEach(function (bar) {
-            // Temporarily disable transition
-            bar.style.transition = 'none';
-            bar.style.width = '0';
-            // Force a reflow, flushing the CSS changes
-            void bar.offsetWidth;
-            // Re-enable transition
-            bar.style.transition = '';
-        });
-
-        if (gallery_state == 5) {
-            // Empty the last progress bar
-            let lastProgressBar = document.getElementById('progress_bar' + gallery_state);
-            lastProgressBar.style.transition = 'none';
-            lastProgressBar.style.width = '0%';
-            void lastProgressBar.offsetWidth;
-            lastProgressBar.style.transition = '';
-
-            document.querySelector('.gallery').style.transform = 'translateX(0)';
-            gallery_state = 0;
-            document.getElementById('progress_bar0').style.width = '100%';
-            document.getElementById('prog_ress0').classList.add('active');
-        } else {
-            let next = gallery_state + 1;
-
-            // Reset the width of the current progress bar to 0%
-            let currentProgressBar = document.getElementById('progress_bar' + gallery_state);
-            currentProgressBar.style.transition = 'none';
-            currentProgressBar.style.width = '0%';
-            void currentProgressBar.offsetWidth;
-            currentProgressBar.style.transition = '';
-
-            document.querySelector('.gallery').style.transform = 'translateX(-' + next + '00%)';
-            gallery_state = next;
-            document.getElementById('progress_bar' + next).style.width = '100%';
-            document.getElementById('progress' + next).classList.add('active');
-        }
-    }, 5000);
-});
-
-function scrollToElement(elementId) {
-    // Get a reference to the element
-    var element = document.getElementById(elementId);
-    
-    // Scroll to the element
-    element.scrollIntoView({
-        behavior: 'smooth', // You can use 'auto' or 'instant' instead of 'smooth' for different scrolling behavior
-        block: 'start',
-    });
-}
-
-document.getElementById("A").addEventListener("click", function() { scrollToElement('about'); });
-document.getElementById("G").addEventListener("click", function() { scrollToElement('gallery'); });
-document.getElementById("F").addEventListener("click", function() { scrollToElement('FAQ'); });
-
-document.addEventListener('DOMContentLoaded', function() {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("linkA")) {
-        scrollToElementA();
-    }
-    if (params.get("linkG")) {
-        scrollToElementG();
-    }
-    if (params.get("linkF")) {
-        scrollToElementF();
-    }
-});
-</script>
-
-
+<script>document.addEventListener("DOMContentLoaded",function(){let gallery_state=0;document.getElementById('progress_bar0').style.width='100%';setInterval(function(){let progressBars=document.querySelectorAll('.progress-1');progressBars.forEach(function(bar){bar.classList.remove('active');});let fullProgressBars=document.querySelectorAll('.progress__full-1');fullProgressBars.forEach(function(bar){bar.style.transition='none';bar.style.width='0';void bar.offsetWidth;bar.style.transition='';});if(gallery_state==5){let lastProgressBar=document.getElementById('progress_bar'+gallery_state);lastProgressBar.style.transition='none';lastProgressBar.style.width='0%';void lastProgressBar.offsetWidth;lastProgressBar.style.transition='';document.querySelector('.gallery').style.transform='translateX(0)';gallery_state=0;document.getElementById('progress_bar0').style.width='100%';document.getElementById('prog_ress0').classList.add('active');}else{let next=gallery_state+1;let currentProgressBar=document.getElementById('progress_bar'+gallery_state);currentProgressBar.style.transition='none';currentProgressBar.style.width='0%';void currentProgressBar.offsetWidth;currentProgressBar.style.transition='';document.querySelector('.gallery').style.transform='translateX(-'+next+'00%)';gallery_state=next;document.getElementById('progress_bar'+next).style.width='100%';document.getElementById('progress'+next).classList.add('active');}},5000);});function scrollToElement(elementId){var element=document.getElementById(elementId);element.scrollIntoView({behavior:'smooth',block:'start',});}document.getElementById("A").addEventListener("click",function(){scrollToElement('about');});document.getElementById("G").addEventListener("click",function(){scrollToElement('gallery');});document.getElementById("F").addEventListener("click",function(){scrollToElement('FAQ'); });document.addEventListener('DOMContentLoaded',function(){const params =new URLSearchParams(window.location.search);if(params.get("linkA")){scrollToElementA();}if(params.get("linkG")){scrollToElementG();}if(params.get("linkF")){scrollToElementF();}});</script>
 <div class="box short">
 	<h1>FAQ</h1>
 </div>
-
-<div class="gridbox2" style="height: 650px;">
+<div class="gridbox2" style="height:650px;">
 	<div class="griditem2L">
-		<img loading="lazy" src="img/cat1.jpg" style="width: 100px; height: 100px;">
+		<img loading="lazy" src="img/cat1.jpg" style="width:100px;height:100px;">
 	</div>
 	<div class="griditem2R">
 		<h2>Why was this made?</h2>
 		<p>SirArky was bored.</p>
 	</div>
 	<div class="griditem2L" id="FAQ">
-		<img loading="lazy" src="./img/cat2.jpg" style="width: 100px; height: 100px;">
+		<img loading="lazy" src="./img/cat2.jpg" style="width:100px;height:100px;">
 	</div>
 	<div class="griditem2R">
 		<h2>Why do you use wh in CS2 </h2>
 		<p>Because we are shit.</p>
 	</div>
 	<div class="griditem2L">
-		<img loading="lazy" src="./img/cat3.jpg" style="width: 100px; height: 100px;">
+		<img loading="lazy" src="./img/cat3.jpg" style="width:100px;height:100px;">
 	</div>
 	<div class="griditem2R">
 		<h2>Is that a real number?</h2>
 		<p>Yes its mine (Sirarky)</p>
 	</div>
 	<div class="griditem2L">
-		<img loading="lazy" src="./img/cat4.jpg" style="width: 100px; height: 100px;">
+		<img loading="lazy" src="./img/cat4.jpg" style="width:100px;height:100px;">
 	</div>
 	<div class="griditem2R">
             <h2>How do i make methamphetamine?</h2>
             <p>Join the discord for instructions >:3</p>
 	</div>
 </div>
-
-
-
 <div class="box black footer">
 	<div class="container">
 			<h3>Address</h3>
@@ -223,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <br>
 		</div>
     <div class="credits">
-        <p class="text-center">© 2024 MeoWCom. All rights reserved. <p style="margin-left: 75%;"> developed by smollfennec</p><a href="https://guns.lol/smollfennec"><img loading="lazy" src="./img/devimg.png"></a></p>
+        <p class="text-center">© 2024 MeoWCom. All rights reserved. <p style="margin-left:75%;"> developed by smollfennec</p><a href="https://guns.lol/smollfennec"><img loading="lazy" src="./img/devimg.png"></a></p>
     </div>
 </div>
 </body>
