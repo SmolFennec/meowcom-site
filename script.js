@@ -72,9 +72,22 @@ document.getElementById("submit").addEventListener("click", function(event){
                 }),
             });
         }
+        console.log("0")
         document.getElementById("name").value = "";
         document.getElementById("review").value = "";
+        document.getElementById("form").style.display = "none";
+        document.getElementById("formbox").style.height = "50px";
+        document.getElementById("formbox").style.cursor = "pointer";
+        document.getElementById("close").style.display = "none";
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("alert").style.display = "block";
 })
     .catch(console.error);
 
 });
+
+function CloseAlert() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("alert").style.display = "none";
+}
+document.getElementById("alrtcls").addEventListener("click", CloseAlert);
