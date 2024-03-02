@@ -11,9 +11,8 @@ window.onload = () => {
 
 function openReviewForm() {
 if (accessToken != null) {
-    console.log("1")
     document.getElementById("form").classList.add("show");
-    document.getElementById("Dislog").style.display = "none";
+    document.getElementById("DisLog").style.display = "none";
 }
 if (screen.width < 980) {
     document.getElementById("formbox").classList.add("opensmall")
@@ -27,7 +26,7 @@ document.getElementById("close").style.display = "block";
 
 function closeReviewForm(event) {
 event.stopPropagation();
-document.getElementById("form").style.display = "none";
+document.getElementById("form").classList.remove("show");
 document.getElementById("formbox").classList.remove("opensmall")
 document.getElementById("formbox").classList.remove("open")
 document.getElementById("close").style.display = "none";
@@ -81,10 +80,7 @@ document.getElementById("submit").addEventListener("click", function(event){
         console.log("0")
         document.getElementById("name").value = "";
         document.getElementById("review").value = "";
-        document.getElementById("form").style.display = "none";
-        document.getElementById("formbox").style.height = "50px";
-        document.getElementById("formbox").style.cursor = "pointer";
-        document.getElementById("close").style.display = "none";
+        closeReviewForm(event);
         document.getElementById("overlay").style.display = "block";
         document.getElementById("alert").style.display = "block";
 })
