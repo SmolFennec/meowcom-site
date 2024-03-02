@@ -11,6 +11,7 @@ window.onload = () => {
 
 function openReviewForm() {
 if (accessToken != null) {
+    console.log("1")
     document.getElementById("form").classList.add("show");
     document.getElementById("Dislog").style.display = "none";
 }
