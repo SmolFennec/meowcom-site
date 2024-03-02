@@ -12,9 +12,15 @@ window.onload = () => {
 function openReviewForm() {
 if (accessToken != null) {
     document.getElementById("form").classList.add("show");
+    document.getElementById("Dislog").style.display = "none";
 }
+if (screen.width < 980) {
+    document.getElementById("formbox").classList.add("opensmall")
+}
+else{
+    document.getElementById("formbox").classList.add("open")
 
-document.getElementById("formbox").classList.add("opensmall")
+}
 document.getElementById("close").style.display = "block";
 }
 
@@ -22,6 +28,7 @@ function closeReviewForm(event) {
 event.stopPropagation();
 document.getElementById("form").style.display = "none";
 document.getElementById("formbox").classList.remove("opensmall")
+document.getElementById("formbox").classList.remove("open")
 document.getElementById("close").style.display = "none";
 }
 
