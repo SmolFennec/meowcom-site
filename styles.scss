@@ -132,11 +132,10 @@ body{
 
 
 .logo-image{
-    width: 155px;
+    width: 77px;
     height: 77px;
     border-radius: 0%;
-    margin-top: -20px;
-    margin-bottom: -15px;
+
 }
 .box {
 
@@ -323,7 +322,7 @@ body{
 
 .gallery img {
     width: 100%;
-    height: auto;
+    height: 80%;
     display: inline-block;
 }
 
@@ -378,6 +377,10 @@ h1{
 
 
 /* reviews */
+
+.main{
+    min-height: 100%;
+}
 
 .grid-container {
     display: grid;
